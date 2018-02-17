@@ -1,0 +1,50 @@
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>'Hi, 'Hello!</h1>
+            <h2>Welcome to The Next Gen Cloud Recommendation Engine</h2>
+            <p class="lead">
+              <img src="images/yeoman.png" alt="I'm Yeoman"><br> Your Cloud Savings, done Right!
+            </p>
+            <p><a class="btn btn-lg btn-success" ng-href="#/kick">Get Started!<span class="glyphicon glyphicon-ok"></span></a></p>
+          </div>
+              
+
+          
+  <div class="row">
+      <form name="inputForm" >
+         
+            <div class="form-group" ng-attr-id="{{tab}}" class="tab-pane fade in" ng-repeat="(tab, inputs) in questions">
+              <div ng-repeat="(input, question) in inputs">
+                <label>{{question.q}}</label>
+                <br/>
+                <div ng-repeat="opt in question.options">
+                  <input ng-if="question.type=='radio'" ng-model="answers[tab][input]" type="{{question.type}}" value="{{$index}}" />
+                  <input ng-if="question.type=='checkbox'" ng-model="answers[tab][input][$index]" type="{{question.type}}" value="{{$index}}"
+                  />
+                   {{opt}}
+                  <br/>
+                </div>
+                <div ng-if="!question.options">
+                    <input ng-if="question.type=='number'" ng-model="answers[tab][input]" type="{{question.type}}" 
+                    min="{{question.min}}" max="{{question.max}}"
+                    />
+                     {{opt}}
+                    <br/>
+                </div>
+              </div>
+            <hr/>
+            </div>
+      
+      
+          <button type="button" class="btn btn-success" ng-click="createCustomJson(formFields)">Create Json</button>
+      
+          <button type="button" class="btn btn-success" ng-click="checkForm()">Send data</button>
+      
+        </form>
+      
+  </div>
+
+
+    </div>
+

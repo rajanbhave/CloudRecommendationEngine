@@ -1,3 +1,7 @@
+com\dm\hackathon2k18\cre\model\Category.class
+com\dm\hackathon2k18\cre\service\CRECompare.class
 com\dm\hackathon2k18\cre\configuration\CREInitializer.class
 com\dm\hackathon2k18\cre\configuration\CREConfiguration.class
+com\dm\hackathon2k18\cre\configuration\CORSFilter.class
+com\dm\hackathon2k18\cre\model\CREData.class
 com\dm\hackathon2k18\cre\controller\CRERestController.class

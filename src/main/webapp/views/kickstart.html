@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  
+<div class="row">
+  <div class="ui three steps">
+  <div class="step">
+    <i class="truck icon"></i>
+    <div class="content">
+      <div class="title">Shipping</div>
+    </div>
+  </div>
+  <div class="active step">
+    <i class="payment icon"></i>
+    <div class="content">
+      <div class="title">Billing</div>
+    </div>
+  </div>
+  <div class="disabled step">
+    <i class="info icon"></i>
+    <div class="content">
+      <div class="title">Confirm Order</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3">
+      <div class="vertical-menu">
+          <a href="#storage" class="active">Storage</a>
+          <a href="#compute">Compute</a>
+          <a href="#network">Network</a>
+        </div>
+       
+        <ul class="nav nav-pills nav-justified">
+            <li class="active"><a data-toggle="pill" href="#storage">Storage</a></li>
+            <li><a data-toggle="pill" href="#compute">Compute</a></li>
+            <li><a data-toggle="pill" href="#network">Network</a></li>
+          </ul>
+
+  </div>
+
+  <div class="col-sm-9 tab-content">
+      <form name="inputForm" >
+         
+            <div class="form-group" ng-attr-id="{{tab}}" class="tab-pane fade in" ng-repeat="(tab, inputs) in questions">
+              <div ng-repeat="(input, question) in inputs">
+                <label>{{question.q}}</label>
+                <br/>
+                <div ng-repeat="opt in question.options">
+                  <input ng-if="question.type=='radio'" ng-model="answers[tab][input]" type="{{question.type}}" value="{{$index}}" />
+                  <input ng-if="question.type=='checkbox'" ng-model="answers[tab][input][$index]" type="{{question.type}}" value="{{$index}}"
+                  />
+                   {{opt}}
+                  <br/>
+                </div>
+                <div ng-if="!question.options">
+                    <input ng-if="question.type=='number'" ng-model="answers[tab][input]" type="{{question.type}}" 
+                    min="{{question.min}}" max="{{question.max}}"
+                    />
+                     {{opt}}
+                    <br/>
+                </div>
+              </div>
+            <hr/>
+            </div>
+      
+      
+          <button type="button" class="btn btn-success" ng-click="createCustomJson(formFields)">Create Json</button>
+      
+          <button type="button" class="btn btn-success" ng-click="checkForm()">Send data</button>
+      
+        </form>
+      
+  </div>
+  
+  
+</div>
